@@ -1,0 +1,248 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>kcValidate by Kevin Crider</title>
+    <meta name="description" content="kcValidate is a universal jQuery form validation plugin designed to be dropped into any existing project without modification to the original code.">
+    <meta name="author" content="Kevin A Crider">
+    <meta name="keywords" content="form validation, jquery, kevin crider">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script type="text/javascript" src="kcvalidate.js"></script>
+    
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#changelog_trigger').on('click', function() {
+          $('#changelog_trigger').toggleClass('active');
+          $('#changelog').slideToggle(100);
+        });
+      });
+    </script>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-18642141-2']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+    <!-- Syntax Highlighter -->
+    <script type="text/javascript" src="../shCore.js"></script>
+    <script type="text/javascript" src="../shBrushJScript.js"></script>
+    <script type="text/javascript" src="../shBrushPhp.js"></script>
+    <link type="text/css" rel="stylesheet" href="../shCoreEclipse.css"/>
+    <script type="text/javascript">
+      SyntaxHighlighter.all({
+        gutter: false
+      });
+    </script>
+
+  </head>
+  <body>
+    <h1>kcValidate</h1>
+    <h2>Another form validation plugin for jQuery</h2>
+    
+    <!-- Share on Twitter -->
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.kevinacrider.com/code/kcvalidate/" data-text="kcValidate - jQuery form validation that can be dropped into any existing project" data-count="none">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>    
+
+    <!-- Share on Google+ -->
+    <div class="g-plus" data-action="share" data-annotation="none" data-href="http://www.kevinacrider.com/code/kcvalidate/"></div>
+    <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+
+    <h3>About</h3>
+    <div class="content">
+      Current Version: .04b (12/10/2013)<br>
+      <span id="changelog_trigger"><span class="show">Show</span><span class="hide">Hide</span> Changelog</span><br>
+      <div id="changelog">
+        .04b
+        <ul>
+          <li>Fixed a bug with required fields.</li>
+        </ul>
+        .04a
+        <ul>
+          <li>Added compatibility for <span class="code">data-kcv-required</span> on radio buttons.</li>
+        </ul>
+        .03a
+        <ul>
+          <li>Added <span class="code">data-kcv-instant</span> option to validate fields instantly instead of waiting for the form to be submitted. All fields will still be validated when a form is submitted but fields with <span class="code">data-kcv-instant="true"</span> will be validated when the field loses focus too.</li>
+          <li>Currently there is a known bug where multiple validation methods attached to one field will not correctly validate when combined with <span class="code">kcv-instant</span>. This should be resolved in the next release.</li>
+        </ul>
+        .02b
+        <ul>
+          <li>Changed the logic on auto-formatting phone numbers to accomodate for backspacing and removing the dash. Previously the dash was deleted and not added back in without removing an additional number and retyping it.</li>
+        </ul>
+        .02a
+        <ul>
+          <li>Classes have been replaced with data attributes</li>
+        </ul>
+        .01a
+        <ul>
+          <li>Initial release</li>
+        </ul>
+      </div>
+      <br>
+      kcValidate is designed to be the ultimate drop-in validation plugin for both new projects and existing ones. It is built on class-based identification methods and can be implemented into an existing project with hardly any changes to the code.<br><br>
+      kcValidate came to existence while looking for a validation plugin to use on another project. Of all the possible solutions I found, none were perfect. Some were overly complicated, some too simple, and some just didn't work at all. So I built kcValidate.<br><br>
+      kcValidate doesn't require you to add any additional elements to your page or modify your form in any way. It works by assigning data attributes to your existing input fields. In order to avoid collisions, all classes are prefixed with kcv.<br><br>
+      In addition to performing validation on several types of data, kcValidate also perform auto-formatting on fields such as phone number and tax ID. For more information on this, please read over the usage section below.<br><br>
+      kcValidate is currently under development and new validation methods are being added regularly. If you have a suggestion I would love to hear it. Drop me a line at <a href="mailto:root@kevinacrider.com?subject=kcValidate Suggestion">root@kevinacrider.com</a> and please check back regularly for updates!
+    </div>
+    <h3>Examples</h3>
+    <div class="content center example">
+      <a href="example.html">kcValidate Examples</a>
+    </div>
+    <h3>Usage</h3>
+    <div class="content">
+      After including the .js file, you initialize kcValidate like so:
+      <pre class="brush: js;">
+        $(document).ready(function() {
+          $('form').kcValidate();
+        });
+      </pre>
+      In the example above we are going to validate every form on the page. You may replace 'form' with an ID or class to target different elements.<br><br>
+      When a form is validated, any input that does not pass validation will be assigned the class 'kcv-failed' unless a class is passed in the settings object. This class is also applied to the parenting label of the input that failed to allow for additional styling.<br><br>
+      If a form passes all the validation that's been assigned to it, it will process as it normally would.
+    </div>
+    <h3>Validation Methods</h3>
+    <div class="content">
+      <ul>
+        <li>
+          <span>kcv-instant</span>
+          Any field that contains the <span class="code">data-kcv-instant</span> attribute will be validated instantly when that field loses focus. All fields are stil validated when the form us submitted but this allows you tp specify specific fields to also be validated instantly.
+          <pre class="brush: php;">
+            &lt;input type="text" data-kcv-instant="true" />
+          </pre>
+        </li>
+        <li>
+          <span>kcv-required</span>
+          These elements are required fields and cannot be left empty.
+          <pre class="brush: php;">
+            &lt;input type="text" data-kcv-required="true" />
+          </pre>
+        </li>
+        <li>
+          <span>kcv-email</span>
+          The provided input must meet the email validation regular expression. An expression is provided by default but an alternative one may be supplied in the settings.
+          <pre class="brush: php;">
+            &lt;input type="text" data-kcv-email="true" />
+          </pre>
+        </li>
+        <li>
+          <span>kcv-number</span>
+          This validation occurs as you type. Only numbers may be entered.
+          <pre class="brush: php;">
+            &lt;input type="text" data-kcv-number="true" />
+          </pre>
+        </li>
+        <li>
+          <span>kcv-phone</span>
+          This field is auto-formatted as you type and only numbers may be entered. A country code is passed to determine the formatting.
+          <pre class="brush: php;">
+            &lt;input type="text" data-kcv-phone="US" />
+          </pre>
+          <span class="support">Supported country codes: US, UK</span>
+        </li>
+        <li>
+          <span>kcv-phone-ext</span>
+          This is the same as above except an extension may be entered as well.
+          <pre class="brush: php;">
+            &lt;input type="text" data-kcv-phone-ext="US" />
+          </pre>
+          <span class="support">Supported country codes: US, UK</span>
+        </li>
+        <li>
+          <span>kcv-min-value</span>
+          <pre class="brush: php;">
+            &lt;input type="text" data-kcv-min-value="25" />
+          </pre>
+        </li>
+        <li>
+          <span>kcv-max-value</span>
+          <pre class="brush: php;">
+            &lt;input type="text" data-kcv-max-value="25" />
+          </pre>
+        </li>
+        <li>
+          <span>kcv-min-length</span>
+          <pre class="brush: php;">
+            &lt;input type="text" data-kcv-min-length="5" />
+          </pre>
+        </li>
+        <li>
+          <span>kcv-max-length</span>
+          <pre class="brush: php;">
+            &lt;input type="text" data-kcv-max-length="40" />
+          </pre>
+        </li>
+        <li>
+          <span>kcv-password <span>and</span> .kcv-password-confirm</span>
+          <pre class="brush: php;">
+            &lt;input type="password" data-kcv-password="true" />
+            &lt;input type="password" data-kcv-password-confirm="true" />
+          </pre>
+        </li>
+        <li>
+          <span>kcv-credit-card</span>
+          <pre class="brush: php;">
+            &lt;input type="text" data-kcv-credit-card="true" />
+          </pre>
+        </li>
+        <li>
+          <span>kcv-ssn <span>and</span> .kcv-tax-id</span>
+          <pre class="brush: php;">
+            &lt;input type="text" data-kcv-ssn="true" />
+            &lt;input type="text" data-kcv-tax-id="true" />
+          </pre>
+        <li>
+          <span>kcv-zip-code</span>
+          <pre class="brush: php;">
+            &lt;input type="text" data-kcv-zip-code="US" />
+          </pre>
+          <span class="support">Supported country codes: US, UK, DE, CA, FR, IT, AU, NL, ES, DK, SE, BE</span>
+        </li>
+      </ul>
+    </div>
+    <h3>Options</h3>
+    <div class="content">
+      <ul>
+        <li>
+          <span>class</span>
+          You may override the default failure class of 'kcv-failed' by passing in your own here. This class is assigned to both the input and the cooresponding label when a validation method fails.
+          <pre class="brush: js;">
+            $('form').kcValidate({
+              'class': 'failed-class'
+            });
+          </pre>
+        </li>
+        <li>
+          <span>email_pattern</span>
+          kcValidate provides a standard email regular expression with which to validate against. If you find that this is not suitable for you, an alternative pattern may be provided through this option.
+          <pre class="brush: js;">
+            $('form').kcValidate({
+              'email_pattern': 'new_pattern_here'
+            });
+          </pre>
+        </li>
+      </ul>
+      In order to increase compatibility and maintain the universal usage of the plugin, additional options are constantly being added. If you have a suggestion, I would love to hear it! Just drop me a line at <a href="mailto:root@kevinacrider.com?subject=kcValidate Suggestion">root@kevinacrider.com</a>.
+    </div>
+    <h3>Download</h3>
+    <div class="content center download">
+      <a href="kcvalidate.js">kcvalidate.js</a>
+    </div>
+    <p id="copyright">&copy;2013 <a href="http://www.kevinacrider.com">Kevin A Crider</a></p>
+  </body>
+</html>

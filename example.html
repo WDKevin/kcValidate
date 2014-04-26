@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <title>kcValidate Example</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    
+    <!-- jQuery is required -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    
+    <!-- Load the kcValidate script -->
+    <script type="text/javascript" src="kcvalidate.js"></script>
+    
+    <script type="text/javascript">
+      $(document).ready(function() {
+        
+        // This initializes kcValidate on #example
+        $('#example').kcValidate();
+        
+      });
+    </script>
+  </head>
+  <body>
+    <h1>kcValidate</h1>
+    <h2>Examples</h2>
+    <h6>Some examples have <span class="code">data-kcv-instant</span> attached and others do not</h6>
+    <form id="example">
+      
+      <!-- Required Field -->
+      This field is required<br>
+      <label for="name">Name</label><input id="name" type="text" data-kcv-required="true" data-kcv-instant="true"><br><br>
+      
+      <!-- Website URL -->
+      <!--
+      This field must contain a valid URL<br>
+      <label for="url">Website Address</label><input id="url" type="text" class="kcv-url"><br><br>
+      -->
+      
+      <!-- Email Address -->
+      This field must be a valid email address format<br>
+      <label for="email">Email Address</label><input id="email" type="text" data-kcv-email="true" data-kcv-instant="true"><br><br>
+      
+      <!-- Numbers Only -->
+      This field may contain only numbers<br>
+      <label for="number">Number</label><input id="number" type="text" data-kcv-number="true"><br><br>
+      
+      <!-- Phone Number -->
+      This field on accepts numbers but formats as you type. The country code is passed in the data-country-code tag.<br>
+      <label for="phone">Phone Number</label><input id="phone" type="text" data-kcv-phone="US"><br><br>
+
+      <!-- Phone Number w/ Extension-->
+      Exactly the same as above, except it supports phone extensions.<br>
+      <label for="phone">Phone Number w/ Ext</label><input id="phone" type="text" data-kcv-phone-ext="US"><br><br>
+
+      <!-- Maximum Length - The maximum length value is defined in the data-max-length tag -->
+      This field may contain up to 5 characters<br>
+      <label for="max-length">Maximum Length</label><input id="max-length" type="text" data-kcv-max-length="5" data-kcv-instant="true"><br><br>
+
+      <!-- Minimum Length - The minimum length value is defined in the data-min-length tag -->
+      This field must be 3 or more characters<br>
+      <label for="min-length">Minimum Length</label><input id="min-length" type="text" data-kcv-min-length="3" data-kcv-instant="true"><br><br>
+
+      <!-- Minimum Length & Maximum Length - Classes can be combined -->
+      <!--
+      BROKEN ON INSTANT VALIDATION
+      This field must be more than 3 and less than 10 characters<br>
+      <label for="min-max-length">Multiple Classes</label><input id="min-max-length" type="text" data-kcv-min-length="3" data-kcv-max-length="10" data-kcv-instant="true"><br><br>
+      -->
+
+      <!-- Maximum Value - The maximum value length is defined in the data-max-value tag -->
+      This field must be no higher than 15<br>
+      <label for="max-value">Maximum Value</label><input id="max-value" type="text" data-kcv-max-value="15" data-kcv-instant="true"><br><br>
+
+      <!-- Minimum Value - The minimum value length is defined in the data-min-value tag -->
+      This field must be no lower than 15<br>
+      <label for="min-value">Minimum Value</label><input id="min-value" type="text" data-kcv-min-value="15" data-kcv-instant="true"><br><br>
+
+      <!-- Passwords -->
+      The next 2 password fields must match and be between 6 and 12 characters long<br>
+      <label for="password1">Password</label><input id="password1" type="password" data-kcv-password="true" data-kcv-min-length="6" data-kcv-max-length="12"><br>
+      <label for="password2">Confirm Password</label><input id="password2" type="password" data-kcv-password-confirm="true" data-kcv-min-length="6" data-kcv-max-length="12" data-kcv-instant="true"><br><br>
+
+      <!-- Credit Card - This checks both the formatting and validates against the Luhn algorithm -->
+      This field must contain a valid credit card format<br>
+      <label for="credit_card">Credit Card</label><input id="credit_card" type="text" data-kcv-credit-card="true" data-kcv-instant="true"><br><br>
+
+      <!-- Zip Code - The country code is specified in the data-country-code tag -->
+      This must contain a valid US zip code format<br>
+      <label for="us_zip_code">Zip Code</label><input id="us_zip_code" type="text" data-kcv-zip-code="US" data-kcv-instant="true"><br><br>
+
+      This field must contain a valid social security number<br>
+      <label for="ssn">SSN</label><input id="ssn" type="text" data-kcv-ssn="true"><br><br>
+      
+      This field must contain a valid tax ID<br>
+      <label for="tax-id">Tax ID</label><input id="tax-id" type="text" data-kcv-tax-id="true"><br><br>
+      
+      <!-- Textarea example - This example is required -->
+      Works on  textareas too. Required.<br>
+      <label for="textarea">Textarea</label><textarea id="textarea" data-kcv-required="true"></textarea><br><br>
+      
+      <!-- Select Example - This example is required -->
+      Select support is also included. This field is required.<br>
+      <label for="select">Pick One</label><select id="select" data-kcv-required="true">
+        <option></option>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+      </select><br><br>
+      
+      <!-- Required on Radio Buttons -->
+      Required fields work on radio buttons, too.<br>
+      <label for="radio">Select One</label>
+      <div class="radio-wrapper">
+        <input type="radio" name="radio[]" id="radio" data-kcv-required="true" data-kcv-instant="true">Option 1<br>
+        <input type="radio" name="radio[]" id="radio" data-kcv-required="true">Option 2<br>
+        <input type="radio" name="radio[]" id="radio" data-kcv-required="true">Option 3<br>
+      </div>
+
+      <!-- Submit button -->
+      <input type="submit" value="Validate Form"><br><br>
+    </form>
+  </body>
+</html>

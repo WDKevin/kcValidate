@@ -1,0 +1,50 @@
+body {font-family:'Open Sans Condensed';text-align:center;width:800px;margin:0 auto;color:#464646;background:url('../bg.png') fixed;}
+
+h1 {font-size:6em;margin-top:20px;width:700px;border-bottom:1px solid #ccc;margin:20px auto 10px;font-family:'Oleo Script';color:#464646;}
+h2 {font-weight:normal;margin:0;padding:0;font-size:28px;}
+h3 {font-size:48px;margin:0 auto 20px;padding:0;text-align:left;width:800px;border-bottom:1px solid #ccc;color:#464646;font-family:'Oleo Script';}
+h4 {margin-bottom:0px;}
+h6 {margin:0px;font-weight:300;font-size:14px;margin-bottom:30px;}
+
+a {text-decoration:none;border-bottom:1px dotted #464646;color:#000;}
+a:hover {border-bottom:0px;background:#464646;color:#fff;}
+
+.code {
+  padding:2px 4px;background:#f7f7f7;border:1px solid #ccc;font-size:90%;font-family:monospace;display:inline-block !important;
+  -webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;
+}
+
+#changelog_trigger {cursor:pointer;}
+#changelog_trigger .hide {display:none;}
+#changelog_trigger.active {font-weight:bold;}
+#changelog_trigger.active .show {display:none;}
+#changelog_trigger.active .hide {display:inline-block;}
+#changelog {display:none;border-bottom:1px solid #ccc;}
+
+blockquote {border:1px solid #ccc;background:#f7f7f7;padding:5px;font-family:'Open Sans Condensed';width:800px;font-size:16px;margin:20px 0;overflow:hidden;color:000;}
+
+.content {text-align:left;margin-bottom:30px;}
+.content.center {text-align:center;}
+.content.example a, .content.download a {font-size:28px;}
+.content ul {margin:0px;padding:0px;margin-left:20px;}
+.content ul li {margin:0px;margin-left:10px;margin-bottom:20px;list-style:square;}
+.content ul li span {display:block;font-weight:700;}
+.content ul li span span {font-weight:300;display:inline-block;}
+.content ul li .support {font-style:italic;font-size:14px;font-weight:400;}
+
+/*input {font-family:'Open Sans Condensed';font-size:28px;width:400px;padding:5px;}*/
+
+form {font-size:14px;width:550px;text-align:right;margin:0 auto;}
+form label {display:inline-block;width:150px;text-align:left;font-size:18px;vertical-align:top;}
+form input, form textarea, form select {font-family:'Open Sans Condensed';font-size:16px;width:400px;padding:2px;}
+form input[type=radio] {width:auto;}
+form input[type=submit] {margin:20px 0px 75px;}
+
+.radio-wrapper {width:397px;display:inline-block;}
+
+input.kcv-failed, textarea.kcv-failed, select.kcv-failed {border:1px solid #ff0000;}
+label.kcv-failed {color:#ff0000;}
+
+#copyright {text-align:center;font-size:12px;margin-top:100px;}
+
+.nogutter {padding:10px !important;}
