@@ -71,35 +71,43 @@ Supported country codes: US, UK
 
 + **kcv-min-value**
 
+
     <input type="text" data-kcv-min-value="25" />
 
 + **kcv-max-value**
+
 
     <input type="text" data-kcv-max-value="25" />
 
 + **kcv-min-length**
 
+
     <input type="text" data-kcv-min-length="5" />
 
 + **kcv-max-length**
 
+
     <input type="text" data-kcv-max-length="40" />
 
 + **kcv-password** and **kcv-password-confirm**
+
 
     <input type="password" data-kcv-password="true" />
     <input type="password" data-kcv-password-confirm="true" />
 
 + **kcv-credit-card**
 
+
     <input type="text" data-kcv-credit-card="true" />
 
 + **kcv-ssn** and **kcv-tax-id**
+
 
     <input type="text" data-kcv-ssn="true" />
     <input type="text" data-kcv-tax-id="true" />
 
 + **kcv-zip-code**
+
 
     <input type="text" data-kcv-zip-code="US" />
 
